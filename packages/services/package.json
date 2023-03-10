@@ -1,0 +1,27 @@
+{
+    "name": "@swiss-army-knife/services",
+    "version": "0.0.0",
+    "description": "",
+    "author": "Matthias Einbrodt",
+    "license": "MIT",
+    "keywords": [],
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "scripts": {
+        "build": "npm run delete:buildDir && tsc --project tsconfig.json",
+        "delete:buildDir": "del-cli --force ./dist"
+    },
+    "devDependencies": {
+        "@types/fs-extra": "^11.0.1",
+        "@types/node": "^18.15.0",
+        "del-cli": "^5.0.0",
+        "typescript": "^4.9.5"
+    },
+    "dependencies": {
+        "@swiss-army-knife/models": "^0.0.0",
+        "csv-parse": "^5.3.6",
+        "csv-stringify": "^6.3.0",
+        "fs-extra": "^11.1.0",
+        "ts-results": "^3.3.0"
+    }
+}

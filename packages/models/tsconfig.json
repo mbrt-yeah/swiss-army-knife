@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "./",
+        "declaration": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "forceConsistentCasingInFileNames": true,
+        "incremental": true,
+        "lib": ["es6", "dom"],
+        "module": "CommonJS",
+        "moduleResolution": "node",
+        "noFallthroughCasesInSwitch": false,
+        "noImplicitAny": false,
+        "outDir": "./dist",
+        "removeComments": true,
+        "skipLibCheck": true,
+        "sourceMap": true,
+        "strictBindCallApply": false,
+        "strictNullChecks": false,
+        "target": "ES5",
+        "types": ["node"]
+    },
+    "exclude": [
+        "node_modules",
+        "test",
+        "dist",
+        "**/*spec.ts"
+    ],
+    "include": [
+        "./src/index.ts"
+    ]
+}
