@@ -1,15 +1,33 @@
 {
     "name": "@swiss-army-knife/models",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "",
     "author": "Matthias Einbrodt",
     "license": "MIT",
     "keywords": [],
-    "main": "./dist/index.js",
-    "types": "./dist/index.d.ts",
+    "main": "./dist/cjs/index.js",
+    "types": "./dist/cjs/index.d.ts",
+    "exports": {
+        ".": {
+            "import": {
+                "types": "./dist/esm/types/index.d.ts",
+                "default": "./dist/esm/index.js"
+            },
+            "require": {
+                "types": "./dist/cjs/types/index.d.ts",
+                "default": "./dist/cjs/index.js"
+            }
+        }
+    },
+    "files": [
+        "./dist/**/*"
+    ],
     "scripts": {
-        "build": "npm run delete:buildDir && tsc --project tsconfig.json",
-        "delete:buildDir": "del-cli --force ./dist"
+        "build": "npm run build:cjs && npm run build:esm",
+        "build:cjs": "npm run delete:buildDir:cjs && tsc --project tsconfig.cjs.json",
+        "build:esm": "npm run delete:buildDir:esm && tsc --project tsconfig.esm.json",
+        "delete:buildDir:cjs": "del-cli --force ./dist/cjs",
+        "delete:buildDir:esm": "del-cli --force ./dist/esm"
     },
     "devDependencies": {
         "@types/node": "^18.15.0",

@@ -1,5 +1,11 @@
 # @swiss-army-knife/models
 
+## 1.1.1
+
+### Patch Changes
+
+- Follows instructions for creating modern npm packages by Brian Clark (https://snyk.io/blog/best-practices-create-modern-npm-package/)
+
 ## 1.1.0
 
 ### Minor Changes
