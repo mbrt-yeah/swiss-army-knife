@@ -1,5 +1,11 @@
 # @swiss-army-knife/services
 
+## 1.0.2
+
+### Patch Changes
+
+- Updates dependencies
+
 ## 1.0.1
 
 ### Patch Changes
