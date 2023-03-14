@@ -1,5 +1,11 @@
 # @swiss-army-knife/models
 
+## 1.1.2
+
+### Patch Changes
+
+- Fixes wrong path to `index.d.ts` of cjs build
+
 ## 1.1.1
 
 ### Patch Changes
