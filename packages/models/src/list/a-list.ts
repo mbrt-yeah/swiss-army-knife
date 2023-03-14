@@ -1,4 +1,5 @@
 import { arrayfy } from "@swiss-army-knife/utilities";
+import { IRecord } from "../i-record";
 import { IList } from "./i-list";
 import { IListParameters } from "./i-list-parameters";
 
@@ -32,7 +33,7 @@ export abstract class AList<T> implements IList<T> {
 
     public abstract merge(list: IList<T>): IList<T>;
 
-    public abstract toRecord(): any;
+    public abstract toRecord(): IRecord[];
 
     public abstract toString(): string;
 };

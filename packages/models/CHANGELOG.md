@@ -1,5 +1,11 @@
 # @swiss-army-knife/models
 
+## 1.2.0
+
+### Minor Changes
+
+- Adds `toRecord` and to `toString` method to generic interface `IList`
+
 ## 1.1.3
 
 ### Patch Changes
