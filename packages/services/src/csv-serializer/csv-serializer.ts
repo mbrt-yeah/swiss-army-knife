@@ -1,7 +1,7 @@
 import { Err, Ok, Result } from "ts-results";
 import { ICsvSerializer } from "./i-csv-serializer";
 import { ICsvSerializerParameters } from "./i-csv-serializer-parameters";
-import { IRecord } from "models/dist/i-record";
+import { IRecord } from "@swiss-army-knife/models";
 import { Options, stringify } from "csv-stringify";
 import { stringify as csvStringifySync } from "csv-stringify/sync";
 
