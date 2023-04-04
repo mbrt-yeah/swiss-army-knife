@@ -1,5 +1,29 @@
 # @swiss-army-knife/utilities
 
+## 1.1.3
+
+### Patch Changes
+
+- Recreates valid build
+
+## 1.1.2
+
+### Patch Changes
+
+- Allows passing of callback parameters to `tryCatch` function
+
+## 1.1.1
+
+### Patch Changes
+
+- Recreates valid build
+
+## 1.1.0
+
+### Minor Changes
+
+- Adds new generic `tryCatch` function which executes a callback function in a try/catch block and returns a result object containing the result of the callback function or an error.
+
 ## 1.0.1
 
 ### Patch Changes
