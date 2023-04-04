@@ -3,6 +3,8 @@
         "registry":"http://localhost:4873"
     },
     "scripts": {
+        "apply-changesets": "npx changeset version",
+        "create-changeset": "npx changeset",
         "build": "turbo run build"
     },
     "devDependencies": {
