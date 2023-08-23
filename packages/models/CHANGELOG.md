@@ -1,5 +1,12 @@
 # @swiss-army-knife/models
 
+## 1.2.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @swiss-army-knife/utilities@1.2.0
+
 ## 1.2.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @swiss-army-knife/utilities
 
+## 1.2.0
+
+### Minor Changes
+
+- Adds two new functions (`transform-letters-to-number` and `transform-number-to-letters`) in order to transform letters to numbers and vice versa.
+
 ## 1.1.3
 
 ### Patch Changes
