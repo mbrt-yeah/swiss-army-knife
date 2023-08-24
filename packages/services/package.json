@@ -1,6 +1,6 @@
 {
     "name": "@swiss-army-knife/services",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "",
     "author": "Matthias Einbrodt",
     "license": "MIT",
@@ -36,7 +36,7 @@
         "typescript": "^4.9.5"
     },
     "dependencies": {
-        "@swiss-army-knife/models": "^1.1.3",
+        "@swiss-army-knife/models": "^1.2.5",
         "csv-parse": "^5.3.6",
         "csv-stringify": "^6.3.0",
         "fs-extra": "^11.1.0",
