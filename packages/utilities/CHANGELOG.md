@@ -1,5 +1,11 @@
 # @swiss-army-knife/utilities
 
+## 1.2.1
+
+### Patch Changes
+
+- Makes functions `transform-letters-to-number` and `transform-number-to-letters` added in 1.2.0 exportable.
+
 ## 1.2.0
 
 ### Minor Changes
