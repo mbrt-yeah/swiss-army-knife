@@ -1,5 +1,11 @@
 # @swiss-army-knife/models
 
+## 1.2.7
+
+### Patch Changes
+
+- Refactors (file|folder)path logic
+
 ## 1.2.6
 
 ### Patch Changes

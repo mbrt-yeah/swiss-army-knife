@@ -4,11 +4,11 @@ import { resolve as resolvePath } from "node:path";
 import parsePath from "parse-path";
 
 export abstract class APath implements IPath {
-    public parsed: ParsedPath;
-    public value: string;
+    public parsedValue: ParsedPath;
+    public serializedValue: string;
 
     public constructor(serializedPath: string) {
-        this.value = resolvePath(serializedPath);
-        this.parsed = parsePath(serializedPath);
+        this.serializedValue = resolvePath(serializedPath);
+        this.parsedValue = parsePath(serializedPath);
     }
 };

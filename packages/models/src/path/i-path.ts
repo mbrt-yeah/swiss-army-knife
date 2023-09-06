@@ -1,6 +1,3 @@
-import { ParsedPath } from "parse-path";
+import { IPathProperties } from "./i-path-properties";
 
-export interface IPath {
-    parsed: ParsedPath;
-    value: string;
-};
+export interface IPath extends IPathProperties {};
