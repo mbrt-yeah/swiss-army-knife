@@ -1,6 +1,6 @@
-import { APath } from "./a-path";
+import { APath } from '../path/a-path';
 
-export class FolderPath extends APath {
+export class FilePath extends APath {
     public constructor(serializedPath: string) {
         super(serializedPath);
     }

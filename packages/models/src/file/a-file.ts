@@ -1,4 +1,4 @@
-import { FilePath } from "../path/file-path";
+import { FilePath } from "../file-path/file-path";
 import { IFile } from "./i-file";
 import { IFileParameters } from "./i-file-parameters";
 import { IPath } from "../path/i-path";
