@@ -1,5 +1,11 @@
 # @swiss-army-knife/services
 
+## 1.1.0
+
+### Minor Changes
+
+- Adds new `XmlParser` service which parses serialized xml data.
+
 ## 1.0.3
 
 ### Patch Changes
@@ -22,12 +28,13 @@
 
 ### Major Changes
 
-- New `CsvParser` service which parses serialized csv data.
-- New `CsvSerializer` service which serializes csv data deserialized to Javascript objects.
-- New `FileReader` service which reads the contents of a file and returns it in serialized form.
-- New `FileWriter` service which writes data in a serialized form to a file.
+- Adds new 
+  - `CsvParser` service which parses serialized csv data.
+  - `CsvSerializer` service which serializes csv data deserialized to Javascript objects.
+  - `FileReader` service which reads the contents of a file and returns it in serialized form.
+  - `FileWriter` service which writes data in a serialized form to a file.
 
 ### Patch Changes
 
-- Updated dependencies
+- Updates dependencies
   - @swiss-army-knife/models@1.0.0
