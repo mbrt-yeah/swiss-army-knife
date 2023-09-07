@@ -1,6 +1,7 @@
 export * from "./file-path";
 export * from "./file";
 export * from "./folder-path";
+export * from "./folder";
 export * from "./list";
 export * from "./path";
 
