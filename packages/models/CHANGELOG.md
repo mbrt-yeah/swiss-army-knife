@@ -1,6 +1,6 @@
 # @swiss-army-knife/models
 
-## 1.3.0
+## 1.3.1
 
 ### Minor Changes
 
