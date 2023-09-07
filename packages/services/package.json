@@ -42,7 +42,7 @@
     "dependencies": {
         "@jest/globals": "^29.6.4",
         "@swiss-army-knife/models": "^1.3.2",
-        "@swiss-army-knife/utilities": "^1.3.0",
+        "@swiss-army-knife/utilities": "^1.4.0",
         "csv-parse": "^5.3.6",
         "csv-stringify": "^6.3.0",
         "fast-xml-parser": "^4.2.7",
