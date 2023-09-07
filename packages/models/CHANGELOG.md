@@ -1,5 +1,11 @@
 # @swiss-army-knife/models
 
+## 1.3.0
+
+### Minor Changes
+
+- Rewrites and enhances `File` class with root and stats properties.
+
 ## 1.2.7
 
 ### Patch Changes
