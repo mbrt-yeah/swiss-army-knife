@@ -7,7 +7,7 @@ import { IFolder } from "./i-folder";
 import { IFolderOptions } from "./i-folder-options";
 import { IPath } from "../path/i-path";
 
-export abstract class Folder implements IFolder {
+export class Folder implements IFolder {
     public path: IPath;
     public root?: IFolder;
     public stats?: Stats;

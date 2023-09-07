@@ -1,5 +1,11 @@
 # @swiss-army-knife/models
 
+## 1.3.3
+
+### Patch Changes
+
+- Removes `abstract` modifier from `File` and `Folder` classes.
+
 ## 1.3.2
 
 ### Patch Changes
