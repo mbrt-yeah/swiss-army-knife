@@ -6,25 +6,29 @@ import { Stats, readdirSync, statSync } from "node:fs";
 interface ITraverseDirResult {
     stats: Stats;
     path: string;
-    rootPath?: string;
+    rootDir?: ITraverseDirResult;
 };
 
 function* traverseDir(dirPath: string): Generator<ITraverseDirResult> {
-    const contents = readdirSync(dirPath, {
+    const rootDir: ITraverseDirResult = {
+        path: dirPath,
+        stats: statSync(dirPath)
+    };
+
+    const dirContents = readdirSync(dirPath, {
         withFileTypes: true
     });
 
-    for (const content of contents) {
-        const contentPath = join(dirPath, content.name);
-        const contentStats = statSync(contentPath);
+    for (const dirContent of dirContents) {
+        const contentPath = join(dirPath, dirContent.name);
 
         yield {
             path: contentPath,
-            rootPath: dirPath,
-            stats: contentStats
+            rootDir,
+            stats: statSync(contentPath)
         };
 
-        if (content.isDirectory())
+        if (dirContent.isDirectory())
             yield* traverseDir(contentPath);
     }
 };
