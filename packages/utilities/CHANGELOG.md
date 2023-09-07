@@ -1,5 +1,11 @@
 # @swiss-army-knife/utilities
 
+## 1.3.0
+
+### Minor Changes
+
+- Adds a new `traverse-dir` function which visits all files and directories within a root directory.
+
 ## 1.2.1
 
 ### Patch Changes
