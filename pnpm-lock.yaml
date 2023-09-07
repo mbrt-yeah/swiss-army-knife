@@ -32,7 +32,7 @@ importers:
   packages/services:
     specifiers:
       '@jest/globals': ^29.6.4
-      '@swiss-army-knife/models': ^1.2.5
+      '@swiss-army-knife/models': ^1.3.1
       '@types/fs-extra': ^11.0.1
       '@types/node': ^18.15.0
       csv-parse: ^5.3.6
@@ -47,7 +47,7 @@ importers:
       typescript: ^4.9.5
     dependencies:
       '@jest/globals': 29.6.4
-      '@swiss-army-knife/models': link:../models
+      '@swiss-army-knife/models': 1.3.1
       csv-parse: 5.3.6
       csv-stringify: 6.3.0
       fast-xml-parser: 4.2.7
@@ -866,6 +866,20 @@ packages:
     resolution: {integrity: sha512-V4BG07kuYSUkTCSBHG8G8TNhM+F19jXFWnQtzj+we8DrkpSBCee9Z3Ms8yiGer/dlmhe35/Xdgyo3/0rQKg7YA==}
     dependencies:
       '@sinonjs/commons': 3.0.0
+
+  /@swiss-army-knife/models/1.3.1:
+    resolution: {integrity: sha512-YtIPqFigFEdywFjRCnID/JdoYtf8Uttcsv3JkkPrAcED400/652elyqP2pL6L7j2v9BOvxh7w8Iqgjrexc66Yg==}
+    dependencies:
+      '@swiss-army-knife/utilities': 1.2.1
+      parse-path: 7.0.0
+      ts-results: 3.3.0
+    dev: false
+
+  /@swiss-army-knife/utilities/1.2.1:
+    resolution: {integrity: sha512-iKfiIaQn5gjqQlx9WbqBpbPCX9xf6XRQiaOt3LOhU+KbLHDTQmCaMOiTyiDJYekMbmj9vvSQWUJPmlNWvHpA0A==}
+    dependencies:
+      ts-results: 3.3.0
+    dev: false
 
   /@types/babel__core/7.20.1:
     resolution: {integrity: sha512-aACu/U/omhdk15O4Nfb+fHgH/z3QsfQzpnvRZhYhThms83ZnAOZz7zZAWO7mn2yyNQaA4xTO8GLK3uqFU4bYYw==}
