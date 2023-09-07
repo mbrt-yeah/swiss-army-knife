@@ -8,7 +8,7 @@ import { IFileOptions } from "./i-file-options";
 import { IFolder } from "../folder/i-folder";
 import { IPath } from "../path/i-path";
 
-export abstract class File<T> implements IFile<T> {
+export class File<T> implements IFile<T> {
     public data?: T;
     public path: IPath;
     public root?: IFolder;
