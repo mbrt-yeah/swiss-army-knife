@@ -1,5 +1,3 @@
-import { IFileParameters } from "./i-file-parameters";
+import { IFileProperties } from "./i-file-properties";
 
-export interface IFile<T> extends IFileParameters<T> {
-
-};
+export interface IFile<T> extends IFileProperties<T> {};
