@@ -1,5 +1,11 @@
 # @swiss-army-knife/utilities
 
+## 1.4.0
+
+### Minor Changes
+
+- Changes data type of root property of `ITraverseDirResult` in `traverse-dir` function.
+
 ## 1.3.0
 
 ### Minor Changes
