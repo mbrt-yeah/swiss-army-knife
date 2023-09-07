@@ -1,1 +1,3 @@
-export interface IDirExplorerProperties {};
+export interface IDirExplorerProperties {
+    dirPath: string;
+};
