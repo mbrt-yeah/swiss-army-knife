@@ -6,6 +6,6 @@ import { Stats } from "node:fs";
 
 export interface IFolderProperties {
     path: FilePath;
-    root?: IFolder;
-    stats?: Stats;
+    root: IFolder | undefined;
+    stats: Stats | undefined;
 };
