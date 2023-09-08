@@ -8,6 +8,9 @@
         "outDir": "./dist/esm",
         "strict": true,
         "target": "ES2022",
+        "typeRoots": [
+            "./node_modules/@types"
+        ]
     },
     "exclude": [
         "node_modules",

@@ -1,14 +1,14 @@
+/// <reference types="node" />
+
 import { IPath } from "./i-path";
-import { ParsedPath } from "parse-path";
-import { resolve as resolvePath } from "node:path";
-import parsePath from "parse-path";
+import { resolve, parse, ParsedPath } from "node:path";
 
 export abstract class APath implements IPath {
     public parsedValue: ParsedPath;
     public serializedValue: string;
 
     public constructor(serializedPath: string) {
-        this.serializedValue = resolvePath(serializedPath);
-        this.parsedValue = parsePath(serializedPath);
+        this.serializedValue = resolve(serializedPath);
+        this.parsedValue = parse(serializedPath);
     }
 };
