@@ -9,10 +9,10 @@ import { IFolder } from "../folder/i-folder";
 import { IPath } from "../path/i-path";
 
 export class File<T> implements IFile<T> {
-    public data?: T;
+    public data: T | undefined;
     public path: IPath;
-    public root?: IFolder;
-    public stats?: Stats
+    public root: IFolder | undefined;
+    public stats: Stats | undefined;
 
     public constructor(options: IFileOptions<T> = {}) {
         this.data = options.data

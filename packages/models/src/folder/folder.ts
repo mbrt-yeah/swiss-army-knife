@@ -9,8 +9,8 @@ import { IPath } from "../path/i-path";
 
 export class Folder implements IFolder {
     public path: IPath;
-    public root?: IFolder;
-    public stats?: Stats;
+    public root: IFolder | undefined;
+    public stats: Stats | undefined;
 
     public constructor(options: IFolderOptions) {
         this.path = options.path || new FolderPath();

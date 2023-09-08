@@ -1,4 +1,6 @@
-import { ParsedPath } from "parse-path";
+/// <reference types="node" />
+
+import { ParsedPath } from "node:path";
 
 export interface IPathProperties {
     parsedValue: ParsedPath;

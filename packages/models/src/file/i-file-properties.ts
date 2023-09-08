@@ -6,8 +6,8 @@ import { FilePath } from "../file-path/file-path";
 import { IFolder } from "../folder/i-folder";
 
 export interface IFileProperties<T> {
-    data?: T;
+    data: T | undefined;
     path: FilePath;
-    root?: IFolder;
-    stats?: Stats;
+    root: IFolder | undefined;
+    stats: Stats | undefined;
 };

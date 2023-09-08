@@ -1,5 +1,14 @@
 # @swiss-army-knife/models
 
+## 1.4.0
+
+### Minor Changes
+
+- fix: Replaces functionality provided by `parse-path` package with Node.js path parsing functionality.
+- test: Adds test suite for `FilePath` class.
+- build: Updates dependencies
+  - @swiss-army-knife/utilities@1.4.0
+
 ## 1.3.3
 
 ### Patch Changes
