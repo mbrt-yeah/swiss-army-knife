@@ -39,8 +39,8 @@ export class DirExplorer implements IDirExplorer {
             if (filterCallbackFn && typeof filterCallbackFn === "function")
                 files = files.filter((file) => filterCallbackFn(file));
         }
-        catch(error: unknown) {
-            error = (error instanceof Error) ? error : new Error("Unknown error");
+        catch(errorThrown: unknown) {
+            error = (errorThrown instanceof Error) ? errorThrown : new Error("Unknown error");
         }
 
         if (error)
@@ -56,8 +56,8 @@ export class DirExplorer implements IDirExplorer {
         let error: Error | undefined = undefined;
         let folders: Folder[] = [];
 
-        try
-        {
+        //try
+        //{
             for (const result of traverseDir(this.dirPath)) {
                 if (!result.stats.isDirectory())
                     continue;
@@ -73,14 +73,15 @@ export class DirExplorer implements IDirExplorer {
 
             if (filterCallbackFn && typeof filterCallbackFn === "function")
                 folders = folders.filter((file) => filterCallbackFn(file));
-        } 
-        catch(error: unknown) 
-        {
-            error = (error instanceof Error) ? error : new Error("Unknown error");
-        }
+        //} 
+        //catch(error: unknown) 
+        //{
+        //    console.log(error);
+        //    error = (error instanceof Error) ? error : new Error("Unknown error");
+        //}
 
-        if (error)
-            return new Err(error);
+        //if (error)
+        //    return new Err(error);
 
         return new Ok(folders);
     }
