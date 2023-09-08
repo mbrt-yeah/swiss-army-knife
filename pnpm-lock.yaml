@@ -36,7 +36,8 @@ importers:
   packages/services:
     specifiers:
       '@jest/globals': ^29.6.4
-      '@swiss-army-knife/models': ^1.2.5
+      '@swiss-army-knife/models': ^1.4.0
+      '@swiss-army-knife/utilities': ^1.4.0
       '@types/fs-extra': ^11.0.1
       '@types/node': ^18.15.0
       csv-parse: ^5.3.6
@@ -52,6 +53,7 @@ importers:
     dependencies:
       '@jest/globals': 29.6.4
       '@swiss-army-knife/models': link:../models
+      '@swiss-army-knife/utilities': link:../utilities
       csv-parse: 5.3.6
       csv-stringify: 6.3.0
       fast-xml-parser: 4.2.7

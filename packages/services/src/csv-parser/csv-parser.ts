@@ -33,8 +33,8 @@ export class CsvParser implements ICsvParser {
     }
 
     public executeSync(): Result<IRecord[], Error> {
-        let data: IRecord[] = undefined,
-            error: Error | undefined = undefined;
+        let data: IRecord[] = [];
+        let error: Error | undefined = undefined;
 
         try {
             data = parseSync(this.data, this.options);

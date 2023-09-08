@@ -1,5 +1,14 @@
 # @swiss-army-knife/services
 
+## 1.2.0
+
+### Minor Changes
+
+- feat: Adds new `DirExplorer` service which allows the recursive traversal and inspection of folders and their contents 
+- test: Adds test suite for `DirExplorer` class.
+- build: Updates dependencies
+  - @swiss-army-knife/models@1.4.0
+
 ## 1.1.0
 
 ### Minor Changes
@@ -28,7 +37,7 @@
 
 ### Major Changes
 
-- Adds new 
+- Adds new
   - `CsvParser` service which parses serialized csv data.
   - `CsvSerializer` service which serializes csv data deserialized to Javascript objects.
   - `FileReader` service which reads the contents of a file and returns it in serialized form.
