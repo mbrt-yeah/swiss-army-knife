@@ -3,6 +3,7 @@ export * from "./createShortUniqueId.js";
 export * from "./get-object-property-value.js";
 export * from "./make-string-human-readable.js";
 export * from "./remove-all-whitespaces-from-string.js";
+export * from "./sort-object-keys.js";
 export * from "./transform-letters-to-number.js";
 export * from "./transform-number-to-letters.js";
 export * from "./traverse-dir.js";
