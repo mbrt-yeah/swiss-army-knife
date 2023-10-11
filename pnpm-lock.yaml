@@ -163,10 +163,10 @@ importers:
         specifier: ^29.6.4
         version: 29.6.4
       '@swiss-army-knife/models':
-        specifier: ^1.4.0
-        version: 1.5.1
+        specifier: workspace:^1.4.0
+        version: link:../../../models/dist/esm
       '@swiss-army-knife/utilities':
-        specifier: ^1.4.0
+        specifier: workspace:^1.4.0
         version: link:../../../utilities/dist/esm
       csv-parse:
         specifier: ^5.3.6
@@ -180,9 +180,9 @@ importers:
       fs-extra:
         specifier: ^11.1.0
         version: 11.1.0
-      ts-results:
-        specifier: ^3.3.0
-        version: 3.3.0
+      ts-results-es:
+        specifier: ^4.0.0
+        version: 4.0.0
     devDependencies:
       '@types/fs-extra':
         specifier: ^11.0.1
@@ -212,10 +212,10 @@ importers:
         specifier: ^29.6.4
         version: 29.6.4
       '@swiss-army-knife/models':
-        specifier: ^1.4.0
-        version: 1.5.1
+        specifier: workspace:^1.4.0
+        version: link:../../../models/dist/esm
       '@swiss-army-knife/utilities':
-        specifier: ^1.4.0
+        specifier: workspace:^1.4.0
         version: link:../../../utilities/dist/esm
       csv-parse:
         specifier: ^5.3.6
@@ -229,9 +229,9 @@ importers:
       fs-extra:
         specifier: ^11.1.0
         version: 11.1.0
-      ts-results:
-        specifier: ^3.3.0
-        version: 3.3.0
+      ts-results-es:
+        specifier: ^4.0.0
+        version: 4.0.0
     devDependencies:
       '@types/fs-extra':
         specifier: ^11.0.1
@@ -260,6 +260,9 @@ importers:
       ts-results-es:
         specifier: ^4.0.0
         version: 4.0.0
+      uid:
+        specifier: ^2.0.2
+        version: 2.0.2
     devDependencies:
       '@jest/globals':
         specifier: ^29.6.4
@@ -1135,20 +1138,6 @@ packages:
     resolution: {integrity: sha512-V4BG07kuYSUkTCSBHG8G8TNhM+F19jXFWnQtzj+we8DrkpSBCee9Z3Ms8yiGer/dlmhe35/Xdgyo3/0rQKg7YA==}
     dependencies:
       '@sinonjs/commons': 3.0.0
-
-  /@swiss-army-knife/models@1.5.1:
-    resolution: {integrity: sha512-b5yGRZJZ87sEW9XGXK+llHG0h9Bff8QGzHmftpKKpqUEPBhjqER8MINM3+/yYcKTJa1AICQ9Y+dxjtiSswF9Bg==}
-    dependencies:
-      '@swiss-army-knife/utilities': 1.6.0
-      ts-results: 3.3.0
-    dev: false
-
-  /@swiss-army-knife/utilities@1.6.0:
-    resolution: {integrity: sha512-ihyGp1j4D9PbgUjPlAHu8zxDvYJG0UxbfFwMxOhZJ9QhWfop8a2UGI97Q1N2Ndxzo2I9l4uJuczOrVtMhUObRQ==}
-    dependencies:
-      ts-results: 3.3.0
-      uid: 2.0.2
-    dev: false
 
   /@types/babel__core@7.20.1:
     resolution: {integrity: sha512-aACu/U/omhdk15O4Nfb+fHgH/z3QsfQzpnvRZhYhThms83ZnAOZz7zZAWO7mn2yyNQaA4xTO8GLK3uqFU4bYYw==}
@@ -3776,10 +3765,6 @@ packages:
 
   /ts-results-es@4.0.0:
     resolution: {integrity: sha512-v8vi0R4hu3Z5CugRPGA2qnIns4a4j+3/Bkh5Iak041AsBNOYA6DNjoijvHDli76Grt6KvihU6errHX03Fz9Jzw==}
-    dev: false
-
-  /ts-results@3.3.0:
-    resolution: {integrity: sha512-FWqxGX2NHp5oCyaMd96o2y2uMQmSu8Dey6kvyuFdRJ2AzfmWo3kWa4UsPlCGlfQ/qu03m09ZZtppMoY8EMHuiA==}
     dev: false
 
   /tslib@2.6.2:
