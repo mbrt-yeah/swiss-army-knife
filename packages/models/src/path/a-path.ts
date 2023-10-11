@@ -1,6 +1,6 @@
 /// <reference types="node" />
 
-import { IPath } from "./i-path";
+import { IPath } from "./i-path.js";
 import { resolve, parse, ParsedPath } from "node:path";
 
 export abstract class APath implements IPath {

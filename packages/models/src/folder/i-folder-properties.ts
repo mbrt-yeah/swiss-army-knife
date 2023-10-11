@@ -1,7 +1,7 @@
 /// <reference types="node" />
 
-import { FilePath } from "../file-path/file-path";
-import { IFolder } from "./i-folder";
+import { FilePath } from "../file-path/file-path.js";
+import { IFolder } from "./i-folder.js";
 import { Stats } from "node:fs";
 
 export interface IFolderProperties {

@@ -1,7 +1,8 @@
 import { arrayfy } from "@swiss-army-knife/utilities";
-import { IRecord } from "../i-record";
-import { IList } from "./i-list";
-import { IListParameters } from "./i-list-parameters";
+
+import { IRecord } from "../i-record.js";
+import { IList } from "./i-list.js";
+import { IListParameters } from "./i-list-parameters.js";
 
 export abstract class AList<T> implements IList<T> {
     private __entries: T[];

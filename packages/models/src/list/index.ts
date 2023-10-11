@@ -1,3 +1,3 @@
-export * from "./a-list";
-export * from "./i-list-parameters";
-export * from "./i-list";
+export * from "./a-list.js";
+export * from "./i-list-parameters.js";
+export * from "./i-list.js";

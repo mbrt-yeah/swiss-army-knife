@@ -1,8 +1,8 @@
-import { Err, Ok, Result } from "ts-results";
+import { Err, Ok, Result } from "ts-results-es";
 import { XMLParser as FastXmlParser, X2jOptions } from "fast-xml-parser";
 
-import { IXmlParser } from "./i-xml-parser";
-import { IXmlParserOptions } from "./i-xml-parser-options";
+import { IXmlParser } from "./i-xml-parser.js";
+import { IXmlParserOptions } from "./i-xml-parser-options.js";
 
 export class XmlParser implements IXmlParser {
     public data: string;

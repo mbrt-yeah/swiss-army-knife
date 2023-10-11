@@ -1,11 +1,11 @@
 /// <reference types="node" />
 
-import { Err, Ok, Result } from "ts-results";
+import { Err, Ok, Result } from "ts-results-es";
 import { File, FilePath, Folder, FolderPath } from "@swiss-army-knife/models";
 import { ITraverseDirResult, traverseDir } from "@swiss-army-knife/utilities";
 
-import { IDirExplorer } from "./i-dir-explorer";
-import { IDirExplorerOptions } from "./i-dir-explorer-options";
+import { IDirExplorer } from "./i-dir-explorer.js";
+import { IDirExplorerOptions } from "./i-dir-explorer-options.js";
 
 export class DirExplorer implements IDirExplorer {
     public dirPath: string;

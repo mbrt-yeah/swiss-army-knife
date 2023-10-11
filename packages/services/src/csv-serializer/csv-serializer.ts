@@ -1,9 +1,10 @@
-import { Err, Ok, Result } from "ts-results";
-import { ICsvSerializer } from "./i-csv-serializer";
-import { ICsvSerializerParameters } from "./i-csv-serializer-parameters";
+import { Err, Ok, Result } from "ts-results-es";
 import { IRecord } from "@swiss-army-knife/models";
 import { Options, stringify } from "csv-stringify";
 import { stringify as csvStringifySync } from "csv-stringify/sync";
+
+import { ICsvSerializer } from "./i-csv-serializer.js";
+import { ICsvSerializerParameters } from "./i-csv-serializer-parameters.js";
 
 export class CsvSerializer implements ICsvSerializer {
     public data: IRecord[];

@@ -2,7 +2,7 @@ import { describe, expect, it } from "@jest/globals";
 import { File } from "@swiss-army-knife/models";
 import { resolve } from "node:path";
 
-import { DirExplorer } from "../dir-explorer/dir-explorer";
+import { DirExplorer } from "../dir-explorer/dir-explorer.js";
 
 const dirPath = resolve(__dirname, "../../.tests")
 
@@ -15,7 +15,7 @@ describe("DirExplorer", () => {
             const jsonFiles = files.filter((file) => file.path.parsedValue.ext === ".json");
             const txtFiles = files.filter((file) => file.path.parsedValue.ext === ".txt");
 
-            expect(executeResult.err).toBe(false);
+            expect(executeResult.isErr()).toBe(false);
             expect(files).toBeInstanceOf(Array);
             expect(files.length).toBe(5);
             expect(jsonFiles.length).toBe(2);
@@ -29,7 +29,7 @@ describe("DirExplorer", () => {
             });
             const files = executeResult.unwrap();
 
-            expect(executeResult.err).toBe(false);
+            expect(executeResult.isErr()).toBe(false);
             expect(files).toBeInstanceOf(Array);
             expect(files.length).toBe(2);
 
@@ -44,7 +44,7 @@ describe("DirExplorer", () => {
             });
             const files = executeResult.unwrap();
 
-            expect(executeResult.err).toBe(false);
+            expect(executeResult.isErr()).toBe(false);
             expect(files).toBeInstanceOf(Array);
             expect(files.length).toBe(0);
         });

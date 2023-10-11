@@ -1,4 +1,4 @@
-import { IRecord } from "../i-record";
+import { IRecord } from "../i-record.js";
 
 export interface IList<T> {
     get entries(): T[];

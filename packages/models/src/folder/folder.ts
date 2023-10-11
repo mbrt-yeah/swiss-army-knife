@@ -2,10 +2,10 @@
 
 import { Stats } from "node:fs";
 
-import { FolderPath } from "../folder-path/folder-path";
-import { IFolder } from "./i-folder";
-import { IFolderOptions } from "./i-folder-options";
-import { IPath } from "../path/i-path";
+import { FolderPath } from "../folder-path/folder-path.js";
+import { IFolder } from "./i-folder.js";
+import { IFolderOptions } from "./i-folder-options.js";
+import { IPath } from "../path/i-path.js";
 
 export class Folder implements IFolder {
     public path: IPath;

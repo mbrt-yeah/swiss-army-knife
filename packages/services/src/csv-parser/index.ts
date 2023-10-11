@@ -1,3 +1,3 @@
-export * from "./csv-parser";
-export * from "./i-csv-parser";
-export * from "./i-csv-parser-parameters";
+export * from "./csv-parser.js";
+export * from "./i-csv-parser.js";
+export * from "./i-csv-parser-parameters.js";

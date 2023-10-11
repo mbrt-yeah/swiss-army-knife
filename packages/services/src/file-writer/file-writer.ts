@@ -1,7 +1,8 @@
 import { ensureFile, ensureFileSync, outputFile, outputFileSync } from "fs-extra";
-import { Err, Ok, Result } from "ts-results";
-import { IFileWriter } from "./i-file-writer";
-import { IFileWriterParameters } from "./i-file-writer-parameters";
+import { Err, Ok, Result } from "ts-results-es";
+
+import { IFileWriter } from "./i-file-writer.js";
+import { IFileWriterParameters } from "./i-file-writer-parameters.js";
 
 export class FileWriter implements IFileWriter {
     public path: string;

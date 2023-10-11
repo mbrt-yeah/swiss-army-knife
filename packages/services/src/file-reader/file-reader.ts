@@ -1,7 +1,8 @@
-import { Err, Ok, Result } from "ts-results";
-import { IFileReader } from "./i-file-reader";
-import { IFileReaderParameters } from "./i-file-reader-parameters";
+import { Err, Ok, Result } from "ts-results-es";
 import { readFile, readFileSync } from "fs-extra";
+
+import { IFileReader } from "./i-file-reader.js";
+import { IFileReaderParameters } from "./i-file-reader-parameters.js";
 
 export class FileReader implements IFileReader {
     public encoding: BufferEncoding;

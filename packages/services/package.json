@@ -5,30 +5,16 @@
     "author": "Matthias Einbrodt",
     "license": "MIT",
     "keywords": [],
-    "main": "./dist/cjs/index.js",
-    "types": "./dist/cjs/types/index.d.ts",
-    "exports": {
-        ".": {
-            "import": {
-                "types": "./dist/esm/types/index.d.ts",
-                "default": "./dist/esm/index.js"
-            },
-            "require": {
-                "types": "./dist/cjs/types/index.d.ts",
-                "default": "./dist/cjs/index.js"
-            }
-        }
-    },
-    "files": [
-        "./dist/**/*"
-    ],
     "scripts": {
         "build": "npm run build:cjs && npm run build:esm",
-        "build:cjs": "npm run delete:buildDir:cjs && tsc --project tsconfig.cjs.json",
-        "build:esm": "npm run delete:buildDir:esm && tsc --project tsconfig.esm.json",
-        "delete:buildDir:cjs": "del-cli --force ./dist/cjs",
-        "delete:buildDir:esm": "del-cli --force ./dist/esm",
-        "test": "jest"
+        "build:cjs": "npm run build:cjs:deleteBuildDir && npm run build:cjs:compile && npm run build:cjs:package",
+        "build:cjs:deleteBuildDir": "del-cli --force ./dist/cjs",
+        "build:cjs:compile": "tsc --project tsconfig.cjs.json",
+        "build:cjs:package": "node ./build-scripts/create-package-json-for-cjs-build.js",
+        "build:esm": "npm run build:esm:deleteBuildDir && npm run build:esm:compile && npm run build:esm:package",
+        "build:esm:deleteBuildDir": "del-cli --force ./dist/esm",
+        "build:esm:compile": "tsc --project tsconfig.esm.json",
+        "build:esm:package": "node ./build-scripts/create-package-json-for-esm-build.js"
     },
     "devDependencies": {
         "@types/fs-extra": "^11.0.1",
@@ -41,12 +27,12 @@
     },
     "dependencies": {
         "@jest/globals": "^29.6.4",
-        "@swiss-army-knife/models": "^1.4.0",
-        "@swiss-army-knife/utilities": "^1.4.0",
+        "@swiss-army-knife/models": "workspace:^1.4.0",
+        "@swiss-army-knife/utilities": "workspace:^1.4.0",
         "csv-parse": "^5.3.6",
         "csv-stringify": "^6.3.0",
         "fast-xml-parser": "^4.2.7",
         "fs-extra": "^11.1.0",
-        "ts-results": "^3.3.0"
+        "ts-results-es": "^4.0.0"
     }
 }

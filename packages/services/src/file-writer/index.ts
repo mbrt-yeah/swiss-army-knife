@@ -1,3 +1,3 @@
-export * from "./file-writer";
-export * from "./i-file-writer";
-export * from "./i-file-writer-parameters";
+export * from "./file-writer.js";
+export * from "./i-file-writer.js";
+export * from "./i-file-writer-parameters.js";

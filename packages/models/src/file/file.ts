@@ -2,11 +2,11 @@
 
 import { Stats } from "node:fs";
 
-import { FilePath } from "../file-path/file-path";
-import { IFile } from "./i-file";
-import { IFileOptions } from "./i-file-options";
-import { IFolder } from "../folder/i-folder";
-import { IPath } from "../path/i-path";
+import { FilePath } from "../file-path/file-path.js";
+import { IFile } from "./i-file.js";
+import { IFileOptions } from "./i-file-options.js";
+import { IFolder } from "../folder/i-folder.js";
+import { IPath } from "../path/i-path.js";
 
 export class File<T> implements IFile<T> {
     public data: T | undefined;

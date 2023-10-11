@@ -1,9 +1,10 @@
-import { Err, Ok, Result } from "ts-results";
-import { ICsvParser } from "./i-csv-parser";
-import { ICsvParserParameters } from "./i-csv-parser-parameters";
+import { Err, Ok, Result } from "ts-results-es";
 import { IRecord } from "@swiss-army-knife/models";
 import { Options, parse } from "csv-parse";
 import { parse as parseSync } from "csv-parse/sync";
+
+import { ICsvParser } from "./i-csv-parser.js";
+import { ICsvParserParameters } from "./i-csv-parser-parameters.js";
 
 export class CsvParser implements ICsvParser {
     public data: string;

@@ -2,8 +2,8 @@
 
 import { Stats } from "node:fs";
 
-import { FilePath } from "../file-path/file-path";
-import { IFolder } from "../folder/i-folder";
+import { FilePath } from "../file-path/file-path.js";
+import { IFolder } from "../folder/i-folder.js";
 
 export interface IFileProperties<T> {
     data: T | undefined;
