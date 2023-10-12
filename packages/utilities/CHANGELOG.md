@@ -1,5 +1,11 @@
 # @swiss-army-knife/utilities
 
+## 2.0.1
+
+## Patch Changes
+
+- build: Implicit `any` data types have been made explicit in `sortObjectkeys` function.
+
 ## 2.0.0 
 
 ## Major Changes
