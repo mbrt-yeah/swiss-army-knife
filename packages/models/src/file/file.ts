@@ -6,11 +6,10 @@ import { FilePath } from "../file-path/file-path.js";
 import { IFile } from "./i-file.js";
 import { IFileOptions } from "./i-file-options.js";
 import { IFolder } from "../folder/i-folder.js";
-import { IPath } from "../path/i-path.js";
 
 export class File<T> implements IFile<T> {
     public data: T | undefined;
-    public path: IPath;
+    public path: FilePath;
     public root: IFolder | undefined;
     public stats: Stats | undefined;
 
