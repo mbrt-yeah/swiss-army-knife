@@ -1,29 +1,25 @@
-/// <reference types="node" />
-
-import { Err, Ok, Result } from "ts-results-es";
+import { Err, Result } from "ts-results-es";
 import { File, FilePath, Folder, FolderPath } from "@swiss-army-knife/models";
 import { ITraverseDirResult, traverseDir } from "@swiss-army-knife/utilities";
+import { tryCatch } from "@swiss-army-knife/utilities";
 
 import { IDirExplorer } from "./i-dir-explorer.js";
-import { IDirExplorerOptions } from "./i-dir-explorer-options.js";
 
 export class DirExplorer implements IDirExplorer {
-    public dirPath: string;
+    private __dirPath: string;
 
-    public constructor(options: IDirExplorerOptions) {
-        this.dirPath = options.dirPath || "";
+    public constructor(dirPath: string) {
+        this.__dirPath = dirPath;
     }
 
     public listFiles(filterCallbackFn?: (result: File<any>) => boolean): Result<File<any>[], Error> {
-        if (!this.dirPath)
+        if (!this.__dirPath)
             return new Err(new Error("Path to directory is empty, null or undefined"));
 
-        let error: Error | undefined = undefined;
-        let files: File<any>[] = [];
+        return tryCatch(() => {
+            let files: File<any>[] = [];
 
-        try
-        {
-            for (const result of traverseDir(this.dirPath)) {
+            for (const result of traverseDir(this.__dirPath)) {
                 if (!result.stats.isFile())
                     continue;
 
@@ -38,27 +34,19 @@ export class DirExplorer implements IDirExplorer {
 
             if (filterCallbackFn && typeof filterCallbackFn === "function")
                 files = files.filter((file) => filterCallbackFn(file));
-        }
-        catch(errorThrown: unknown) {
-            error = (errorThrown instanceof Error) ? errorThrown : new Error("Unknown error");
-        }
 
-        if (error)
-            return new Err(error);
-
-        return new Ok(files);
+            return files;
+        });
     }
 
     public listDirs(filterCallbackFn?: (result: Folder) => boolean): Result<Folder[], Error> {
-        if (!this.dirPath)
+        if (!this.__dirPath)
             return new Err(new Error("Path to directory is empty, null or undefined"));
 
-        let error: Error | undefined = undefined;
-        let folders: Folder[] = [];
+        return tryCatch(() => {
+            let folders: Folder[] = [];
 
-        //try
-        //{
-            for (const result of traverseDir(this.dirPath)) {
+            for (const result of traverseDir(this.__dirPath)) {
                 if (!result.stats.isDirectory())
                     continue;
 
@@ -73,17 +61,9 @@ export class DirExplorer implements IDirExplorer {
 
             if (filterCallbackFn && typeof filterCallbackFn === "function")
                 folders = folders.filter((file) => filterCallbackFn(file));
-        //} 
-        //catch(error: unknown) 
-        //{
-        //    console.log(error);
-        //    error = (error instanceof Error) ? error : new Error("Unknown error");
-        //}
 
-        //if (error)
-        //    return new Err(error);
-
-        return new Ok(folders);
+            return folders;
+        });
     }
 
     private __createRootFolder(rootFolder?: ITraverseDirResult): Folder | undefined {
