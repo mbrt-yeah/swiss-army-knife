@@ -1,26 +1,29 @@
 import { ensureFile, ensureFileSync, outputFile, outputFileSync } from "fs-extra";
 import { Err, Ok, Result } from "ts-results-es";
+import { tryCatch } from "@swiss-army-knife/utilities";
 
 import { IFileWriter } from "./i-file-writer.js";
-import { IFileWriterParameters } from "./i-file-writer-parameters.js";
+import { IFileWriterOptions } from "./i-file-writer-options.js";
 
 export class FileWriter implements IFileWriter {
-    public path: string;
-    public data: string;
+    private __fileContents: string;
+    private __filePath: string;
 
-    public constructor(parameters: IFileWriterParameters = {
-        path: "",
-        data: ""
-    }) {
-        this.path = parameters.path;
-        this.data = parameters.data;
+    public encoding: BufferEncoding;
+
+    public constructor(filePath: string, fileContents: string, options: IFileWriterOptions = {}) {
+        this.__fileContents = fileContents;
+        this.__filePath = filePath;
+        this.encoding = options.encoding || "utf8";
     }
 
     public execute(): Promise<Result<void, Error>> {
         return new Promise((resolve) => {
-            ensureFile(this.path)
+            ensureFile(this.__filePath)
                 .then(() => {
-                    return outputFile(this.path, this.data);
+                    return outputFile(this.__filePath, this.__fileContents, {
+                        encoding: this.encoding
+                    });
                 })
                 .then(() => {
                     return resolve(new Ok(undefined));
@@ -32,21 +35,11 @@ export class FileWriter implements IFileWriter {
     }
 
     public executeSync(): Result<void, Error> {
-        let error: Error | undefined = undefined;
-
-        try {
-            ensureFileSync(this.path);
-            outputFileSync(this.path, this.data);
-        } catch(caughtError: unknown) {
-            if (caughtError instanceof Error)
-                error = caughtError as Error;
-            else
-                error = new Error("An error occurred");
-        }
-
-        if (error)
-            return new Err(error);
-
-        return new Ok(undefined);
+        return tryCatch(() => {
+            ensureFileSync(this.__filePath);
+            outputFileSync(this.__filePath, this.__fileContents, {
+                encoding: this.encoding
+            });
+        });
     }
 };
