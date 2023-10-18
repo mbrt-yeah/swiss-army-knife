@@ -2,24 +2,29 @@ import { Err, Ok, Result } from "ts-results-es";
 import { IRecord } from "@swiss-army-knife/models";
 import { Options, parse } from "csv-parse";
 import { parse as parseSync } from "csv-parse/sync";
+import { tryCatch } from "@swiss-army-knife/utilities";
 
 import { ICsvParser } from "./i-csv-parser.js";
-import { ICsvParserParameters } from "./i-csv-parser-parameters.js";
 
 export class CsvParser implements ICsvParser {
-    public data: string;
-    public options: Options;
+    private __data: string;
+    private __options: Options;
 
-    public constructor(parameters: ICsvParserParameters = {
-        data: "",
-        options: {},
-    }) {
-        this.data = parameters.data;
-        this.options = Object.assign({
+    public constructor(data: string, options: Options) {
+        this.__data = data;
+        this.__options = Object.assign({
             columns: true,
             delimiter: ",",
             skip_empty_lines: true,
-        }, parameters.options)
+        }, options);
+    }
+
+    public get data(): string {
+        return this.__data;
+    }
+
+    public get options(): Options {
+        return this.__options;
     }
 
     public async execute(): Promise<Result<IRecord[], Error>> {
@@ -34,21 +39,8 @@ export class CsvParser implements ICsvParser {
     }
 
     public executeSync(): Result<IRecord[], Error> {
-        let data: IRecord[] = [];
-        let error: Error | undefined = undefined;
-
-        try {
-            data = parseSync(this.data, this.options);
-        } catch(caughtError: unknown) {
-            if (caughtError instanceof Error)
-                error = caughtError as Error;
-            else
-                error = new Error("An error occurred");
-        }
-
-        if (error)
-            return new Err(error);
-
-        return new Ok(data);
+        return tryCatch(() => {
+            return parseSync(this.__data, this.__options);
+        });
     }
 };
