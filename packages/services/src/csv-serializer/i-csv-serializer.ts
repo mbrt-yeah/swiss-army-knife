@@ -1,5 +1,10 @@
 import { IExecutable } from "@swiss-army-knife/models";
+import { IRecord } from "@swiss-army-knife/models";
+import { Options } from "csv-stringify";
 
-import { ICsvSerializerParameters } from "./i-csv-serializer-parameters.js";
+import { ICsvSerializerProperties } from "./i-csv-serializer-properties.js";
 
-export interface ICsvSerializer extends ICsvSerializerParameters, IExecutable<string> {};
+export interface ICsvSerializer extends ICsvSerializerProperties, IExecutable<string> {
+    get data(): IRecord[];
+    get options(): Options;
+};
