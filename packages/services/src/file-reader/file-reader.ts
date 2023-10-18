@@ -1,51 +1,102 @@
-import { Err, Ok, Result } from "ts-results-es";
-import { readFile, readFileSync } from "fs-extra";
+import { File, FilePath, Folder, IFile } from "@swiss-army-knife/models";
+import { Ok, Result } from "ts-results-es";
+import { Stats, statSync } from "node:fs";
+import { tryCatch } from "@swiss-army-knife/utilities";
 
+import { FileContentReader } from "../file-content-reader/file-content-reader.js";
 import { IFileReader } from "./i-file-reader.js";
-import { IFileReaderParameters } from "./i-file-reader-parameters.js";
+import { IFileReaderOptions } from "./i-file-reader-options.js";
 
 export class FileReader implements IFileReader {
-    public encoding: BufferEncoding;
-    public path: string;
+    private __encoding: BufferEncoding;
+    private __filePath: string;
+    private __loadContents: boolean;
+    private __rootFolder: Folder | undefined;
+    private __stats: Stats | undefined;
 
-    public constructor(parameters: IFileReaderParameters = {
-        encoding: "utf8",
-        path: "",
-    }) {
-        this.encoding = parameters.encoding || "utf-8";
-        this.path = parameters.path;
+    public constructor(filePath: string, options: IFileReaderOptions = {}) {
+        this.__encoding = options.encoding || "utf8";
+        this.__filePath = filePath;
+        this.__loadContents = options.loadContents || false;
+        this.__rootFolder = options.rootFolder;
+        this.__stats = options.stats;
     }
 
-    public execute(): Promise<Result<string, Error>> {
-        return new Promise((resolve) => {
-            readFile(this.path)
-                .then((buffer: Buffer) => {
-                    const fileContents = buffer.toString(this.encoding);
-                    return resolve(new Ok(fileContents));
-                })
-                .catch((error: unknown) => {
-                    return resolve(new Err(error as Error));
-                });
+    public async execute(): Promise<Result<IFile<any>, Error>> {
+        const createFileResult = this.__createFile(this.__filePath, this.__rootFolder, this.__stats);
+
+        if (createFileResult.isErr())
+            return createFileResult;
+
+        const file = createFileResult.unwrap();
+
+        if (!this.__loadContents)
+            return new Ok(file);
+
+        return this.__loadFileContents(file);
+    }
+
+    public executeSync(): Result<IFile<any>, Error> {
+        const createFileResult = this.__createFile(this.__filePath, this.__rootFolder, this.__stats);
+
+        if (createFileResult.isErr())
+            return createFileResult;
+
+        const file = createFileResult.unwrap();
+
+        if (!this.__loadContents)
+            return new Ok(file);
+
+        return this.__loadFileContentsSync(file);
+    }
+
+    private __createFile(filePathSerialized: string, rootFolder?: Folder, stats?: Stats): Result<File<any>, Error> {
+        const createFilePathResult = this.__createFilePath(filePathSerialized);
+
+        if (createFilePathResult.isErr())
+            return createFilePathResult;
+
+        const filePath = createFilePathResult.unwrap();
+
+        const file = new File({
+            data: undefined,
+            path: filePath,
+            root: (rootFolder) ? rootFolder : undefined,
+            stats: (stats) ? stats : statSync(filePath.serializedValue),
         });
+
+        return new Ok(file);
     }
 
-    public executeSync(): Result<string, Error> {
-        let result: string = "",
-            error: Error | undefined = undefined;
+    private __createFilePath(filePath: string): Result<FilePath, Error> {
+        return tryCatch(() => new FilePath(filePath));
+    }
 
-        try {
-            const buffer = readFileSync(this.path);
-            result += buffer.toString(this.encoding);
-        } catch(caughtError: unknown) {
-            if (caughtError instanceof Error)
-                error = caughtError as Error;
-            else
-                error = new Error("An error occurred");
-        }
+    private async __loadFileContents(file: File<any>): Promise<Result<File<any>, Error>> {
+        const fileContentReader = new FileContentReader(file.path.serializedValue, {
+            encoding: this.__encoding,
+        });
 
-        if (error)
-            return new Err(error);
+        const executeResult = await fileContentReader.execute();
 
-        return new Ok(result);
+        if (executeResult.isErr())
+            return executeResult;
+
+        file.data = executeResult.unwrap();
+        return new Ok(file);
+    }
+
+    private __loadFileContentsSync(file: File<any>): Result<File<any>, Error> {
+        const fileContentReader = new FileContentReader(file.path.serializedValue, {
+            encoding: this.__encoding,
+        });
+
+        const executeResult = fileContentReader.executeSync();
+
+        if (executeResult.isErr())
+            return executeResult;
+
+        file.data = executeResult.unwrap();
+        return new Ok(file);
     }
 };

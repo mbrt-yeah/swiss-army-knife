@@ -1,5 +1,4 @@
-import { IExecutable } from "@swiss-army-knife/models";
+import { IExecutable, IFile } from "@swiss-army-knife/models";
+import { IFileReaderProperties } from "./i-file-reader-properties.js";
 
-import { IFileReaderParameters } from "./i-file-reader-parameters.js";
-
-export interface IFileReader extends IFileReaderParameters, IExecutable<string> {};
+export interface IFileReader extends IFileReaderProperties, IExecutable<IFile<any>> {};
