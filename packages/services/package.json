@@ -1,6 +1,6 @@
 {
     "name": "@swiss-army-knife/services",
-    "version": "1.2.0",
+    "version": "2.0.0",
     "description": "",
     "author": "Matthias Einbrodt",
     "license": "MIT",
@@ -14,7 +14,8 @@
         "build:esm": "npm run build:esm:deleteBuildDir && npm run build:esm:compile && npm run build:esm:package",
         "build:esm:deleteBuildDir": "del-cli --force ./dist/esm",
         "build:esm:compile": "tsc --project tsconfig.esm.json",
-        "build:esm:package": "node ./build-scripts/create-package-json-for-esm-build.js"
+        "build:esm:package": "node ./build-scripts/create-package-json-for-esm-build.js",
+        "test": "jest"
     },
     "devDependencies": {
         "@types/fs-extra": "^11.0.1",
@@ -27,8 +28,8 @@
     },
     "dependencies": {
         "@jest/globals": "^29.6.4",
-        "@swiss-army-knife/models": "workspace:^1.4.0",
-        "@swiss-army-knife/utilities": "workspace:^1.4.0",
+        "@swiss-army-knife/models": "workspace:^2.0.0",
+        "@swiss-army-knife/utilities": "workspace:^2.0.1",
         "csv-parse": "^5.3.6",
         "csv-stringify": "^6.3.0",
         "fast-xml-parser": "^4.2.7",
