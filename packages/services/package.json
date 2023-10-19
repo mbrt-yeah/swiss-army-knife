@@ -28,8 +28,8 @@
     },
     "dependencies": {
         "@jest/globals": "^29.6.4",
-        "@swiss-army-knife/models": "workspace:^2.0.0",
-        "@swiss-army-knife/utilities": "workspace:^2.0.1",
+        "@swiss-army-knife/models": "^2.0.0",
+        "@swiss-army-knife/utilities": "^2.0.1",
         "csv-parse": "^5.3.6",
         "csv-stringify": "^6.3.0",
         "fast-xml-parser": "^4.2.7",
