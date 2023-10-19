@@ -1,4 +1,3 @@
-export * from "./i-xml-parser";
-export * from "./i-xml-parser-options";
-export * from "./i-xml-parser-properties";
-export * from "./xml-parser";
+export * from "./i-xml-parser.js";
+export * from "./i-xml-parser-properties.js";
+export * from "./xml-parser.js";

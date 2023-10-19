@@ -1,3 +1,3 @@
-export * from "./csv-serializer";
-export * from "./i-csv-serializer";
-export * from "./i-csv-serializer-parameters";
+export * from "./csv-serializer.js";
+export * from "./i-csv-serializer-properties.js";
+export * from "./i-csv-serializer.js";

@@ -1,4 +1,3 @@
-export * from "./dir-explorer";
-export * from "./i-dir-explorer-options";
-export * from "./i-dir-explorer-properties";
-export * from "./i-dir-explorer";
+export * from "./dir-explorer.js";
+export * from "./i-dir-explorer-properties.js";
+export * from "./i-dir-explorer.js";

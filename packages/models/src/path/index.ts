@@ -1,3 +1,3 @@
-export * from "./a-path";
-export * from "./i-path";
-export * from "./i-path-properties";
+export * from "./a-path.js";
+export * from "./i-path.js";
+export * from "./i-path-properties.js";

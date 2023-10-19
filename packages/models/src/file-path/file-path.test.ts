@@ -1,5 +1,5 @@
 import {describe, expect, it } from "@jest/globals";
-import { FilePath } from "./file-path";
+import { FilePath } from "./file-path.js";
 
 describe("FilePath", () => {
     describe("#constructor", () => {

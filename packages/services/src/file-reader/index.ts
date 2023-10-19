@@ -1,3 +1,4 @@
-export * from "./file-reader";
-export * from "./i-file-reader";
-export * from "./i-file-reader-parameters";
+export * from "./file-reader.js";
+export * from "./i-file-reader-options.js";
+export * from "./i-file-reader-properties.js";
+export * from "./i-file-reader.js";

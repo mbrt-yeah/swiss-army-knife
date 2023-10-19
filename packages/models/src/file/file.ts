@@ -2,15 +2,14 @@
 
 import { Stats } from "node:fs";
 
-import { FilePath } from "../file-path/file-path";
-import { IFile } from "./i-file";
-import { IFileOptions } from "./i-file-options";
-import { IFolder } from "../folder/i-folder";
-import { IPath } from "../path/i-path";
+import { FilePath } from "../file-path/file-path.js";
+import { IFile } from "./i-file.js";
+import { IFileOptions } from "./i-file-options.js";
+import { IFolder } from "../folder/i-folder.js";
 
 export class File<T> implements IFile<T> {
     public data: T | undefined;
-    public path: IPath;
+    public path: FilePath;
     public root: IFolder | undefined;
     public stats: Stats | undefined;
 

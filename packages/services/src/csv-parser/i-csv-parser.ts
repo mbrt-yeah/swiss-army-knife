@@ -1,4 +1,9 @@
-import { ICsvParserParameters } from "./i-csv-parser-parameters";
 import { IExecutable, IRecord } from "@swiss-army-knife/models";
+import { Options } from "csv-parse";
 
-export interface ICsvParser extends ICsvParserParameters, IExecutable<IRecord[]> {};
+import { ICsvParserProperties } from "./i-csv-parser-properties.js";
+
+export interface ICsvParser extends ICsvParserProperties, IExecutable<IRecord[]> {
+    get data(): string;
+    get options(): Options;
+};

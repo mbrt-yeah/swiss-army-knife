@@ -2,12 +2,12 @@
     "extends": "../tsconfig.base.json",
     "compilerOptions": {
         "declarationDir": "./dist/cjs/types",
-        "lib": ["ES6", "DOM"],
+        "lib": ["ES2015", "DOM"],
         "module": "CommonJS",
         "moduleResolution": "node",
         "outDir": "./dist/cjs",
         "strict": true,
-        "target": "ES6",
+        "target": "ES2015"
     },
     "exclude": [
         "node_modules",

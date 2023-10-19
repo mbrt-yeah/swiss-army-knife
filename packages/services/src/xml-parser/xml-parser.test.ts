@@ -8,18 +8,18 @@ const validXml = "<root><hello>world</hello></root>"
 describe("XmlParser", () => {
     describe("execute", () => {
         it("should parse valid XML without an error", async () => {
-            const parser = new XmlParser({ data: validXml, });
+            const parser = new XmlParser(validXml);
             const executeResult = await parser.execute();
 
-            expect(executeResult.err).toBe(false);
-            expect(executeResult.val).toBeInstanceOf(Object)
+            expect(executeResult.isErr()).toBe(false);
+            expect(executeResult.unwrap()).toBeInstanceOf(Object)
         })
         it("should not parse invalid XML and raise an error", async () => {
-            const parser = new XmlParser({ data: invalidXml, });
+            const parser = new XmlParser(invalidXml);
             const executeResult = await parser.execute();
 
-            expect(executeResult.err).toBe(true);
-            expect(executeResult.val).toBeInstanceOf(Error);
+            expect(executeResult.isErr()).toBe(true);
+            expect(executeResult.unwrap()).toBeInstanceOf(Error);
         })
     })
 });
