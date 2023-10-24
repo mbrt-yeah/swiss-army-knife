@@ -15,10 +15,10 @@ importers:
         specifier: 1.8.3
         version: 1.8.3
 
-  packages/models:
+  packages/build-scripts:
     dependencies:
       '@swiss-army-knife/utilities':
-        specifier: 1.4.0
+        specifier: ^2.0.1
         version: link:../utilities/dist/esm
       ts-results-es:
         specifier: ^4.0.0
@@ -46,10 +46,34 @@ importers:
         specifier: ^4.9.5
         version: 4.9.5
 
+  packages/models:
+    devDependencies:
+      '@jest/globals':
+        specifier: ^29.6.4
+        version: 29.6.4
+      '@types/node':
+        specifier: ^18.15.0
+        version: 18.15.0
+      del-cli:
+        specifier: ^5.0.0
+        version: 5.0.0
+      jest:
+        specifier: ^29.6.4
+        version: 29.6.4(@types/node@18.15.0)
+      ts-jest:
+        specifier: ^29.1.1
+        version: 29.1.1(@babel/core@7.22.15)(jest@29.6.4)(typescript@4.9.5)
+      tslib:
+        specifier: ^2.6.2
+        version: 2.6.2
+      typescript:
+        specifier: ^4.9.5
+        version: 4.9.5
+
   packages/models/dist/cjs:
     dependencies:
       '@swiss-army-knife/utilities':
-        specifier: 1.4.0
+        specifier: ^2.0.1
         version: link:../../../utilities/dist/esm
       ts-results-es:
         specifier: ^4.0.0
@@ -80,7 +104,7 @@ importers:
   packages/models/dist/esm:
     dependencies:
       '@swiss-army-knife/utilities':
-        specifier: 1.4.0
+        specifier: ^2.0.1
         version: link:../../../utilities/dist/esm
       ts-results-es:
         specifier: ^4.0.0
@@ -114,10 +138,10 @@ importers:
         specifier: ^29.6.4
         version: 29.6.4
       '@swiss-army-knife/models':
-        specifier: workspace:^1.4.0
+        specifier: ^2.0.0
         version: link:../models/dist/esm
       '@swiss-army-knife/utilities':
-        specifier: workspace:^1.4.0
+        specifier: ^2.0.1
         version: link:../utilities/dist/esm
       csv-parse:
         specifier: ^5.3.6
@@ -163,10 +187,10 @@ importers:
         specifier: ^29.6.4
         version: 29.6.4
       '@swiss-army-knife/models':
-        specifier: workspace:^1.4.0
+        specifier: ^2.0.0
         version: link:../../../models/dist/esm
       '@swiss-army-knife/utilities':
-        specifier: workspace:^1.4.0
+        specifier: ^2.0.1
         version: link:../../../utilities/dist/esm
       csv-parse:
         specifier: ^5.3.6
@@ -212,10 +236,10 @@ importers:
         specifier: ^29.6.4
         version: 29.6.4
       '@swiss-army-knife/models':
-        specifier: workspace:^1.4.0
+        specifier: ^2.0.0
         version: link:../../../models/dist/esm
       '@swiss-army-knife/utilities':
-        specifier: workspace:^1.4.0
+        specifier: ^2.0.1
         version: link:../../../utilities/dist/esm
       csv-parse:
         specifier: ^5.3.6
@@ -291,6 +315,9 @@ importers:
       ts-results-es:
         specifier: ^4.0.0
         version: 4.0.0
+      uid:
+        specifier: ^2.0.2
+        version: 2.0.2
     devDependencies:
       '@jest/globals':
         specifier: ^29.6.4
@@ -319,6 +346,9 @@ importers:
       ts-results-es:
         specifier: ^4.0.0
         version: 4.0.0
+      uid:
+        specifier: ^2.0.2
+        version: 2.0.2
     devDependencies:
       '@jest/globals':
         specifier: ^29.6.4
