@@ -16,6 +16,12 @@ const createPackageJsonForBuild = (options) => {
     packageJsonFinal["types"] = typesEntryFileRelativePath;
     packageJsonFinal["main"] = "./index.js";
 
+    if (packageJsonFinal["exports"])
+        delete packageJsonFinal["exports"];
+
+    if (packageJsonFinal["files"])
+        delete packageJsonFinal["files"];
+
     const buildDirAbsolutePath = path.resolve(__dirname, path.join("../",outDir), "package.json");
 
     fs.writeFile(buildDirAbsolutePath, JSON.stringify(packageJsonFinal, null, 4), (error) => {
