@@ -1,6 +1,6 @@
 {
     "name": "@swiss-army-knife/models",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "",
     "author": "Matthias Einbrodt",
     "license": "MIT",
@@ -9,6 +9,20 @@
         "./dist/**/*",
         "./src/**/*"
     ],
+    "main": "./dist/esm/index.js",
+    "types": "./dist/esm/types/index.d.ts",
+    "exports": {
+        ".": {
+            "import": {
+                "types": "./dist/esm/types/index.d.ts",
+                "default": "./dist/esm/index.js"
+            },
+            "require": {
+                "types": "./dist/cjs/types/index.d.ts",
+                "default": "./dist/cjs/index.js"
+            }
+        }
+    },
     "scripts": {
         "build": "npm run build:cjs && npm run build:esm",
         "build:cjs": "npm run build:cjs:deleteBuildDir && npm run build:cjs:compile && npm run build:cjs:package",
