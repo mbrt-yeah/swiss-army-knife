@@ -1,9 +1,9 @@
-const path = require("path");
-const createPackageJsonForBuild = require("./create-package-json-for-build");
+const { createPackageJsonForBuild } = require("@swiss-army-knife/build-scripts");
+const { resolve } = require("path");
 
 createPackageJsonForBuild({
-    packageJsonPath: path.resolve(__dirname, "../package.json"),
-    tsConfigPath: path.resolve(__dirname, "../tsconfig.cjs.json"),
+    absoluteModuleBasePath: resolve(__dirname, "../"),
+    relativeTsConfigPath: "./tsconfig.cjs.json",
     packageJsonProps: {
         type: "commonjs"
     }
