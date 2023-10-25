@@ -48,8 +48,11 @@ importers:
 
   packages/models:
     dependencies:
+      '@swiss-army-knife/build-scripts':
+        specifier: ^2.0.0
+        version: link:../build-scripts
       '@swiss-army-knife/utilities':
-        specifier: ^2.0.1
+        specifier: ^2.0.2
         version: link:../utilities
       ts-results-es:
         specifier: ^4.0.0

@@ -1,6 +1,6 @@
 {
     "name": "@swiss-army-knife/models",
-    "version": "2.0.3",
+    "version": "2.0.4",
     "description": "",
     "author": "Matthias Einbrodt",
     "license": "MIT",
@@ -44,7 +44,8 @@
         "typescript": "^4.9.5"
     },
     "dependencies": {
-        "@swiss-army-knife/utilities": "^2.0.1",
+        "@swiss-army-knife/build-scripts": "^2.0.0",
+        "@swiss-army-knife/utilities": "^2.0.2",
         "ts-results-es": "^4.0.0"
     }
 }
