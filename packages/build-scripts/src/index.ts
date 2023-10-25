@@ -1,1 +1,1 @@
-export * from "./create-package-json-for-build";
+export * from "./create-package-json-for-build.js";
