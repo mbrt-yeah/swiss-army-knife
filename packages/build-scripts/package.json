@@ -1,6 +1,6 @@
 {
     "name": "@swiss-army-knife/build-scripts",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "",
     "author": "Matthias Einbrodt",
     "license": "MIT",
@@ -25,5 +25,8 @@
         "tslib": "^2.6.2",
         "typescript": "^4.9.5"
     },
-    "dependencies": {}
+    "dependencies": {
+        "@swiss-army-knife/utilities": "^2.0.2",
+        "ts-results-es": "^4.0.0"
+    }
 }

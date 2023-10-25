@@ -1,39 +1,38 @@
 import { join, resolve } from "node:path";
-import { writeFile } from "node:fs";
+import { Result } from "ts-results-es";
+import { tryCatch } from "@swiss-army-knife/utilities";
+import { writeFileSync } from "node:fs";
 
 interface ICeatePackageJsonForBuildOptions {
-    packageJsonPath: string,
-    tsConfigPath: string,
-    packageJsonProps: Record<string,any>;
-}
+    absoluteModuleBasePath: string,
+    relativeTsConfigPath?: string | undefined,
+    packageJsonProps?: Record<string,any> | undefined,
+};
 
-export function createPackageJsonForBuild(options: ICeatePackageJsonForBuildOptions) {
-    const packageJson = require(options.packageJsonPath);
-    const tsConfig = require(options.tsConfigPath);
-    const packageJsonProps = options.packageJsonProps || {};
+export function createPackageJsonForBuild(options: ICeatePackageJsonForBuildOptions): Result<void, Error> {
+    const absoluteTsConfigPath = resolve(
+        options.absoluteModuleBasePath,
+        options.relativeTsConfigPath || "./tsconfig.json"
+    );
 
-    const declarationDir = tsConfig.compilerOptions.declarationDir;
-    const outDir = tsConfig.compilerOptions.outDir;
+    const tsConfig = require(absoluteTsConfigPath);
+
+    const declarationDir = tsConfig.compilerOptions.declarationDir || "./types";
+    const outDir = tsConfig.compilerOptions.outDir || "./dist";
 
     const typesDirRelativePath = declarationDir.replace(outDir, "");
     const typesEntryFileRelativePath = `.${typesDirRelativePath}/index.d.ts`;
 
-    const packageJsonFinal = Object.assign(packageJson, packageJsonProps)
+    const packageJsonFinal = Object.assign({}, options.packageJsonProps || {})
     packageJsonFinal["types"] = typesEntryFileRelativePath;
     packageJsonFinal["main"] = "./index.js";
 
-    if (packageJsonFinal["exports"])
-        delete packageJsonFinal["exports"];
+    const absoluteBuildDirPath = resolve(
+        options.absoluteModuleBasePath,
+        outDir,
+    );
 
-    if (packageJsonFinal["files"])
-        delete packageJsonFinal["files"];
-
-    const buildDirAbsolutePath = resolve(__dirname, join("../",outDir), "package.json");
-
-    writeFile(buildDirAbsolutePath, JSON.stringify(packageJsonFinal, null, 4), (error) => {
-        if (error)
-            console.error(error);
+    return tryCatch(() => {
+        return writeFileSync(join(absoluteBuildDirPath, "package.json"), JSON.stringify(packageJsonFinal, null, 4));
     });
-
-    return packageJsonFinal;
 };
